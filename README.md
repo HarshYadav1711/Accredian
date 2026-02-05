@@ -13,7 +13,7 @@ This project analyzes **6.3 million synthetic financial transactions** to identi
 | Dataset Size | 6,362,620 transactions |
 | Fraud Rate | 0.13% (8,213 cases) |
 | Fraud Types | TRANSFER, CASH_OUT only |
-| Best Model | Random Forest (ROC-AUC ~0.99) |
+| Best Model | Random Forest (ROC-AUC: 0.9989) |
 
 ### Top Fraud Indicators
 1. **Account Emptying** — Origin balance reduced to zero
@@ -111,10 +111,12 @@ The dataset simulates mobile money transactions based on real transaction patter
 
 ### Model Performance
 
-| Model | Precision | Recall | F1-Score | ROC-AUC |
-|-------|-----------|--------|----------|---------|
-| Logistic Regression | ~0.95 | ~0.92 | ~0.93 | ~0.97 |
-| Random Forest | ~0.98 | ~0.95 | ~0.96 | ~0.99 |
+| Model | Precision (Fraud) | Recall (Fraud) | F1-Score (Fraud) | ROC-AUC |
+|-------|-------------------|----------------|------------------|-------|
+| Logistic Regression | 0.07 | 0.96 | 0.13 | 0.9925 |
+| Random Forest | 1.00 | 1.00 | 1.00 | 0.9989 |
+
+> **Note**: All metrics above are generated directly from the notebook code. Logistic Regression achieves high recall but low precision (many false positives), while Random Forest achieves exceptional performance on this dataset.
 
 ### Business Recommendations
 - **Real-time monitoring** for account-emptying transactions
@@ -131,22 +133,25 @@ The dataset simulates mobile money transactions based on real transaction patter
 - **numpy** — Numerical operations
 - **matplotlib & seaborn** — Visualization
 - **scikit-learn** — Machine learning
+- **statsmodels** — Multicollinearity analysis (VIF)
 - **imbalanced-learn** — SMOTE for class imbalance
 
 ---
 
-## 📝 Notebook Sections
+## 📝 Notebook Sections (Aligned with Accredian Questions)
 
-1. **Problem Understanding** — Business context and success criteria
-2. **Data Overview** — Dataset exploration and class imbalance
-3. **Data Cleaning** — Missing values, outliers, feature engineering
-4. **Feature Selection** — Domain-driven feature rationale
-5. **Model Training** — Logistic Regression + Random Forest
-6. **Model Evaluation** — Comprehensive metrics and analysis
-7. **Fraud Indicators** — Key predictors and patterns
-8. **Business Strategy** — Prevention recommendations
-9. **Measuring Success** — KPIs and monitoring framework
-10. **Conclusion** — Findings, limitations, next steps
+| Section | Topic | Accredian Question |
+|---------|-------|-------------------|
+| 1 | Problem Understanding | — |
+| 2 | Data Overview | — |
+| 3 | Data Cleaning (missing values, outliers, VIF) | **Question 1** |
+| 4 | Feature Selection & Reasoning | **Questions 2, 3** |
+| 5 | Model Training | **Question 2** |
+| 6 | Model Evaluation | **Question 4** |
+| 7 | Key Fraud Indicators | **Questions 5, 6** |
+| 8 | Prevention Strategy | **Question 7** |
+| 9 | Measuring Effectiveness | **Question 8** |
+| 10 | Conclusion | — |
 
 ---
 
